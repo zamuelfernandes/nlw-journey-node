@@ -1,6 +1,7 @@
 import fastify from "fastify";
 import { prisma } from "./lib/prisma";
 import { createTrip } from "./routes/create-trip";
+import { confirmTrip } from "./routes/confirm-trip";
 import {
   serializerCompiler,
   validatorCompiler,
@@ -9,6 +10,7 @@ import {
 const app = fastify();
 
 app.register(createTrip);
+app.register(confirmTrip);
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
