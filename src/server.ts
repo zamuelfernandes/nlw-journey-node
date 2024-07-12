@@ -1,5 +1,5 @@
 import fastify from "fastify";
-import { prisma } from "./lib/prisma";
+import cors from "@fastify/cors";
 import { createTrip } from "./routes/create-trip";
 import { confirmTrip } from "./routes/confirm-trip";
 import {
@@ -8,6 +8,11 @@ import {
 } from "fastify-type-provider-zod";
 
 const app = fastify();
+
+//GARANTIA DE QUEM CONSEGUE ACESSAR A API
+app.register(cors, {
+  origin: "*",
+});
 
 app.register(createTrip);
 app.register(confirmTrip);
