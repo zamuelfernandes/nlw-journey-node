@@ -2,6 +2,7 @@ import fastify from "fastify";
 import cors from "@fastify/cors";
 import { createTrip } from "./routes/create-trip";
 import { confirmTrip } from "./routes/confirm-trip";
+import { confirmParticipant } from "./routes/confirm-participant";
 import {
   serializerCompiler,
   validatorCompiler,
@@ -16,6 +17,7 @@ app.register(cors, {
 
 app.register(createTrip);
 app.register(confirmTrip);
+app.register(confirmParticipant);
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
