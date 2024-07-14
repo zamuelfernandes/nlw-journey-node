@@ -3,8 +3,6 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 
 import { prisma } from "../lib/prisma";
-import { dayjs } from "../lib/dayjf";
-import { parentPort } from "worker_threads";
 
 export async function getParticipants(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().get(

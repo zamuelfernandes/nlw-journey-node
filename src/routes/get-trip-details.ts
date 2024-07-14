@@ -3,7 +3,6 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 
 import { prisma } from "../lib/prisma";
-import { dayjs } from "../lib/dayjf";
 
 export async function getTripDetails(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().get(

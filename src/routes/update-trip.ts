@@ -4,7 +4,6 @@ import nodemailer from "nodemailer";
 import { z } from "zod";
 
 import { prisma } from "../lib/prisma";
-import { getMailClient } from "../lib/mail";
 import { dayjs } from "../lib/dayjf";
 
 export async function updateTrip(app: FastifyInstance) {
