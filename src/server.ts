@@ -8,11 +8,12 @@ import { confirmParticipant } from "./routes/confirm-participant";
 import { confirmTrip } from "./routes/confirm-trip";
 import { createActivity } from "./routes/create-activity";
 import { createTrip } from "./routes/create-trip";
-import { getActivities } from "./routes/get-ativities";
+import { getActivities } from "./routes/get-activities";
 import { createLink } from "./routes/create-link";
 import { getLinks } from "./routes/get-links";
 import { getParticipants } from "./routes/get-participants";
 import { createInvite } from "./routes/create-invite";
+import { updateTrip } from "./routes/update-trip";
 
 const app = fastify();
 
@@ -30,6 +31,7 @@ app.register(createLink);
 app.register(getLinks);
 app.register(getParticipants);
 app.register(createInvite);
+app.register(updateTrip);
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
