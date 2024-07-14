@@ -16,14 +16,19 @@ import { createInvite } from "./routes/create-invite";
 import { updateTrip } from "./routes/update-trip";
 import { getTripDetails } from "./routes/get-trip-details";
 import { getParticipantDetails } from "./routes/get-participant-details";
+import { errorHandler } from "./error-handler";
 
 const app = fastify();
 
-//GARANTIA DE QUEM CONSEGUE ACESSAR A API
+//GARANTIA DE QUALQUER UM CONSEGUE ACESSAR A API
 app.register(cors, {
   origin: "*",
 });
 
+//ERROR HANDLER
+app.setErrorHandler(errorHandler);
+
+//ENDPOINTS
 app.register(createTrip);
 app.register(confirmTrip);
 app.register(confirmParticipant);
@@ -37,9 +42,11 @@ app.register(updateTrip);
 app.register(getTripDetails);
 app.register(getParticipantDetails);
 
+//VALIDATORS
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
+//EXECUTIONS
 app.listen({ port: 3333 }).then(() => {
   console.log("Server running...");
 });
